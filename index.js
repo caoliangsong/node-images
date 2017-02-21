@@ -1,6 +1,6 @@
 let images = require('images')
 let path = require('path')
-let inputDir = path.resolve('./randoms/')
+let inputDir = path.resolve('./input/')
 let outputDir = path.resolve('./output/')
 let fs = require('fs')
 
