@@ -1,15 +1,31 @@
-var images = require('images')
-var path = require('path')
-var inputDir = path.resolve('./randoms/')
-var outputDir = path.resolve('./output/')
-var fs = require('fs')
+let images = require('images')
+let path = require('path')
+let inputDir = path.resolve('./randoms/')
+let outputDir = path.resolve('./output/')
+let fs = require('fs')
+
+let wrong_images = 0;
 
 fs.readdir(inputDir, function(err,files){
 	if(err) throw err;
-	// console.log(files);
-	files.forEach(function(file,index){
+	for(let index = 0,len = files.length;index < len;index++){
+		let file = files[index];
+		let ext = file.substring(file.length-4,file.length)
+		if(ext.indexOf('.') === -1){
+			console.log(`发现1个不正常的图片${file}`);
+			wrong_images++;
+			continue;
+		} 
+		// if(index > 10) break;
 		images(inputDir+'/'+file)
-		.draw(images("./logo.png"),180,150)
-		.save(outputDir+'/'+file,{quality:80})
-	})
+		.size(390)
+		.draw(images("./logo.png"),270,188)
+		.save(outputDir+'/report'+index+ext,{quality:80});
+		console.log(`生成新图片：report${index+ext}成功`);
+	}
+	console.log(`---------------------\n共有${wrong_images}个错误图片\n---------------------`)
+
+	// files.forEach(function(file,index){
+		
+	// })
 })

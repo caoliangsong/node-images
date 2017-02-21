@@ -1,13 +1,13 @@
 {
-  "name": "node-images",
+  "name": "node-images-demo",
   "version": "1.0.0",
-  "description": "",
+  "description": "a node-image demo",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["node-images"],
+  "author": "cls404508644",
   "license": "ISC",
   "dependencies": {
     "images": "^3.0.0"
